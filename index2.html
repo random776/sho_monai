@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>しょうもないカウントダウン</title>
+        <link rel="stylesheet" href="./base.css"></style>
+    </head>
+    <body>
+        <h3>東京大学授業カウントダウン</h3>
+        <div id="margin">
+            <div id="bar"></div>
+        </div>
+        <div id="countdownArea" class="countdown">
+            <p><span>春休み残り</span>
+            <span id="countdown-day"></span>日
+            <span id="countdown-hour"></span>時間
+            <span id="countdown-min"></span>分
+            <span id="countdown-sec"></span>秒
+        </div></p>
+        <p>（授業開始:4月5日 8:30）</p>
+        <small>Copyright(c) 2023 @東京大学駒場キャンパス ランゲルハンス棟 All Rights Reserved.</small>
+    </body>
+    <script>
+        let countdown = setInterval(function() {
+            const now = new Date(); //今の日時
+            const target = new Date("2023/4/5 8:30:00");
+            const target2 = new Date("2023/2/1 0:00:00");
+            const remain_time = target - now; //差分を取る（ミリ秒で返ってくる）
+            const all_time = target - target2;
+            if(remain_time < 0) {
+                return false 
+            }
+            const difDay  = Math.floor(remain_time / 1000 / 60 / 60 / 24);
+            const difHour = Math.floor(remain_time / 1000 / 60 / 60 ) % 24;
+            const difMin  = Math.floor(remain_time / 1000 / 60) % 60;
+            const difSec  = Math.floor(remain_time / 1000) % 60;
+            document.getElementById("countdown-day").textContent  = difDay
+            document.getElementById("countdown-hour").textContent = difHour
+            document.getElementById("countdown-min").textContent  = difMin;
+            document.getElementById("countdown-sec").textContent  = difSec;
+            const div = document.getElementById("bar");
+            div.style.width = `${((all_time-remain_time)/all_time)*500}px`
+            if(remain_time < 0) {
+                clearInterval(countdown)
+            }
+        }, 1000);
+
+    </script>
+</html>

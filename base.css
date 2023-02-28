@@ -1,0 +1,26 @@
+@charset "UTF-8";
+body{
+    font-family: "游ゴシック Light", sans-serif;
+    font-size: 85%;
+    margin: 50px;
+    background-color: rgb(248, 255, 207);
+}
+
+#margin {
+    width: 510px;
+    height: 31px;
+    border: 1px solid skyblue;
+    box-shadow: 0px 0px 10px skyblue;
+}
+
+#bar {
+    height: 25px;
+    background-color: rgb(46, 234, 46);
+    text-align: center;
+    margin: 3px;
+}
+
+#checkButton {
+    position: relative; 
+    left: 450px;
+}

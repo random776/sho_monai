@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>インストール画面を装ったタイマー0.0.1</title>
+        <link rel="stylesheet" href="./base.css"></style>
+    </head>
+    <body>
+        <h3>ランゲルハンスソフトのインストール</h3>
+        <div id="margin">
+            <div id="bar"></div>
+        </div>
+        <p><div id="countdownArea" class="countdown">
+            <span>しばらくお待ちください... 残り約</span>
+            <span id="countdown-min"></span>分
+            <span id="countdown-sec"></span>秒
+            
+        </div>
+        <input type="button" value="キャンセル" id="checkButton"></p>
+    </body>
+    <script>
+        remain_time = 1000;
+        let countdown = setInterval(function() {
+            remain_time = remain_time - 1;
+            if(remain_time < 0) {
+                return false 
+            }
+            const difMin  = Math.floor(remain_time  / 60) % 60;
+            const difSec  = Math.floor(remain_time) % 60;
+            document.getElementById("countdown-min").textContent  = difMin;
+            document.getElementById("countdown-sec").textContent  = difSec;
+            const div = document.getElementById("bar");
+            div.style.width = `${(1000-remain_time)* 0.5}px`
+            if(remain_time < 0) {
+                clearInterval(countdown)
+            }
+        }, 1000);
+
+    </script>
+</html>
