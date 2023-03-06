@@ -1,0 +1,10 @@
+body {
+    font-family: "游ゴシック Light", sans-serif;
+    width: 700px;
+    height: 400px;
+    margin: 50px;
+}
+
+#px {
+    font-size: 19px;
+}
