@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>こんなカウントダウンはいやだ！</title>
+        <link rel="stylesheet" href="./base.css"></style>
+    </head>
+    <body>
+        <h3>東京大学成績発表カウントダウン（1年)</h3>
+        <div id="countdownArea1" class="countdown1">
+            <p><span>成績発表まで（理科）</span>
+            <span id="countdown-hour1"></span>時間
+            <span id="countdown-min1"></span>分
+            <span id="countdown-sec1"></span>秒
+        </div></p>
+        <div id="countdownArea2" class="countdown2">
+            <p><span>成績発表まで（文科）</span>
+            <span id="countdown-hour2"></span>時間
+            <span id="countdown-min2"></span>分
+            <span id="countdown-sec2"></span>秒
+        </div></p>
+        <small>Copyright(c) 2023 @東京大学駒場キャンパス ランゲルハンス棟 All Rights Reserved.</small>
+    </body>
+    <script>
+        let countdown = setInterval(function() {
+            const now = new Date(); //今の日時
+            const target = new Date("2023/3/9 13:00:00");
+            const remain_time = target - now; //差分を取る（ミリ秒で返ってくる）
+            if(remain_time < 0) {
+                return false 
+            }
+            const difHour = Math.floor(remain_time / 1000 / 60 / 60 ) % 24;
+            const difMin  = Math.floor(remain_time / 1000 / 60) % 60;
+            const difSec  = Math.floor(remain_time / 1000) % 60;
+            document.getElementById("countdown-hour1").textContent = difHour
+            document.getElementById("countdown-min1").textContent  = difMin;
+            document.getElementById("countdown-sec1").textContent  = difSec;
+            
+        }, 1000);
+        let countdown2 = setInterval(function() {
+            const now = new Date(); //今の日時
+            const target = new Date("2023/3/9 14:00:00");
+            const remain_time = target - now; //差分を取る（ミリ秒で返ってくる）
+            if(remain_time < 0) {
+                return false 
+            }
+            const difHour = Math.floor(remain_time / 1000 / 60 / 60 ) % 24;
+            const difMin  = Math.floor(remain_time / 1000 / 60) % 60;
+            const difSec  = Math.floor(remain_time / 1000) % 60;
+            document.getElementById("countdown-hour2").textContent = difHour
+            document.getElementById("countdown-min2").textContent  = difMin;
+            document.getElementById("countdown-sec2").textContent  = difSec;
+            
+        }, 1000);
+
+    </script>
+</html>
