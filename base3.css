@@ -1,0 +1,12 @@
+@charset "UTF-8";
+body{
+    font-family: "游ゴシック Light", sans-serif;
+    font-size: 85%;
+    margin: 50px;
+    background-color: rgb(248, 255, 207);
+}
+
+
+#countdownArea1 {
+    font-size: 200%;
+}
